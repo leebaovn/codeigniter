@@ -1,32 +1,31 @@
 <html>
 	<head>
 		<title>ciBlog</title>
-		<link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
+		<!-- <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="<?php echo base_url();?>/assets/css/bootstrap.min.css">
+   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
     <script src="http://cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
 	</head>
 	<body>
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="<?php echo base_url(); ?>">ciBlog</a>
+          <a class="navbar-brand" href="<?php echo base_url(); ?>">F9 Blog</a>
         </div>
-        <div id="navbar">
-          <ul class="nav navbar-nav">
-            <li><a href="<?php echo base_url(); ?>">Home</a></li>
-            <li><a href="<?php echo base_url(); ?>about">About</a></li>
-             <li><a href="<?php echo base_url(); ?>posts">Blog</a></li>
-             <li><a href="<?php echo base_url(); ?>categories">Categories</a></li>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>posts">Bài viết</a></li>
+             <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>categories">Danh mục</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="navbar-nav">
           <?php if(!$this->session->userdata('logged_in')) : ?>
-            <li><a href="<?php echo base_url(); ?>users/login">Login</a></li>
-            <li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>users/login">Đăng nhập</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>users/register">Đăng ký</a></li>
           <?php endif; ?>
           <?php if($this->session->userdata('logged_in')) : ?>
-            <li><a href="<?php echo base_url(); ?>posts/create">Create Post</a></li>
-            <li><a href="<?php echo base_url(); ?>categories/create">Create Category</a></li>
-            <li><a href="<?php echo base_url(); ?>users/logout">Logout</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>posts/create">Tạo post mới</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>categories/create">Tạo danh mục</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>users/logout">Đăng xuất</a></li>
           <?php endif; ?>
           </ul>
         </div>
