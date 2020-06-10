@@ -11,7 +11,7 @@
 			// Init Pagination
 			$this->pagination->initialize($config);
 
-			$data['title'] = 'Latest Posts';
+			$data['title'] = 'New Posts';
 
 			$data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
 
