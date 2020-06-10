@@ -9,10 +9,7 @@
 				<label>Họ tên</label>
 				<input type="text" class="form-control" name="name" placeholder="Họ và tên">
 			</div>
-			<div class="form-group">
-				<label>Zipcode</label>
-				<input type="text" class="form-control" name="zipcode" placeholder="Zipcode">
-			</div>
+			
 			<div class="form-group">
 				<label>Email</label>
 				<input type="email" class="form-control" name="email" placeholder="Email">
@@ -29,7 +26,7 @@
 				<label>Nhập lại mật khẩu</label>
 				<input type="password" class="form-control" name="password2" placeholder="Nhập lại mật khẩu">
 			</div>
-			<button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+			<button type="submit" class="btn btn-block contact_btn">Đăng ký</button>
 		</div>
 	</div>
 <?php echo form_close(); ?>

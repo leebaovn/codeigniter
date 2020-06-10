@@ -9,7 +9,7 @@
 				<div class="form-group">
 					<input type="password" name="password" class="form-control" placeholder="Mật khẩu" required autofocus>
 				</div>
-				<button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+				<button type="submit" class="btn btn-block contact_btn">Đăng nhập</button>
 			</div>
 		</div>
 	<?php echo form_close(); ?>
