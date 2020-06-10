@@ -4,14 +4,14 @@
 			// Pagination Config	
 			$config['base_url'] = base_url() . 'posts/index/';
 			$config['total_rows'] = $this->db->count_all('posts');
-			$config['per_page'] = 3;
+			$config['per_page'] = 4;
 			$config['uri_segment'] = 3;
 			$config['attributes'] = array('class' => 'pagination-link');
 
 			// Init Pagination
 			$this->pagination->initialize($config);
 
-			$data['title'] = 'New Posts';
+			$data['title'] = 'Bài viết mới';
 
 			$data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
 
@@ -42,7 +42,7 @@
 				redirect('users/login');
 			}
 
-			$data['title'] = 'Create Post';
+			$data['title'] = 'Tạo bài viết mới';
 
 			$data['categories'] = $this->post_model->get_categories();
 
@@ -114,7 +114,7 @@
 				show_404();
 			}
 
-			$data['title'] = 'Edit Post';
+			$data['title'] = 'Chỉnh sửa bài viết';
 
 			$this->load->view('templates/header');
 			$this->load->view('posts/edit', $data);
