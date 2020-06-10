@@ -14,7 +14,7 @@
 			$data['title'] = 'Bài viết mới';
 
 			$data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
-
+			$data['categories']=$this->post_model->get_categories();
 			$this->load->view('templates/header');
 			$this->load->view('posts/index', $data);
 			$this->load->view('templates/footer');
@@ -65,7 +65,7 @@
 
 				if(!$this->upload->do_upload()){
 					$errors = array('error' => $this->upload->display_errors());
-					$post_image = 'noimage.jpg';
+					$post_image = 'default.jpg';
 				} else {
 					$data = array('upload_data' => $this->upload->data());
 					$post_image = $_FILES['userfile']['name'];
