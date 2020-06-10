@@ -2,7 +2,7 @@
 	class Users extends CI_Controller{
 		// Register user
 		public function register(){
-			$data['title'] = 'Sign Up';
+			$data['title'] = 'Đăng Ký';
 
 			$this->form_validation->set_rules('name', 'Name', 'required');
 			$this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists');
@@ -29,7 +29,7 @@
 
 		// Log in user
 		public function login(){
-			$data['title'] = 'Sign In';
+			$data['title'] = 'Đăng Nhập';
 
 			$this->form_validation->set_rules('username', 'Username', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
