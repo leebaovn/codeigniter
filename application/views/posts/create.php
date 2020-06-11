@@ -4,15 +4,15 @@
 
 <?php echo form_open_multipart('posts/create'); ?>
   <div class="form-group">
-    <label>Title</label>
-    <input type="text" class="form-control" name="title" placeholder="Add Title">
+    <label>Tiêu đề</label>
+    <input type="text" class="form-control" name="title" placeholder="Tiêu đề bài viết">
   </div>
   <div class="form-group">
-    <label>Body</label>
-    <textarea id="editor1" class="form-control" name="body" placeholder="Add Body"></textarea>
+    <label>Nội dung</label>
+    <textarea id="editor1" class="form-control" name="body" placeholder="Nội dung bài viết"></textarea>
   </div>
   <div class="form-group">
-	  <label>Category</label>
+	  <label>Danh mục</label>
 	  <select name="category_id" class="form-control">
 		  <?php foreach($categories as $category): ?>
 		  	<option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
@@ -20,8 +20,8 @@
 	  </select>
   </div>
   <div class="form-group">
-	  <label>Upload Image</label>
+	  <label>Hình ảnh</label>
 	  <input type="file" name="userfile" size="20">
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-primary">Tạo</button>
 </form>

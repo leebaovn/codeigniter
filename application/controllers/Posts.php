@@ -4,17 +4,17 @@
 			// Pagination Config	
 			$config['base_url'] = base_url() . 'posts/index/';
 			$config['total_rows'] = $this->db->count_all('posts');
-			$config['per_page'] = 3;
+			$config['per_page'] = 4;
 			$config['uri_segment'] = 3;
 			$config['attributes'] = array('class' => 'pagination-link');
 
 			// Init Pagination
 			$this->pagination->initialize($config);
 
-			$data['title'] = 'New Posts';
+			$data['title'] = 'Bài viết mới';
 
 			$data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
-
+			$data['categories']=$this->post_model->get_categories();
 			$this->load->view('templates/header');
 			$this->load->view('posts/index', $data);
 			$this->load->view('templates/footer');
@@ -42,7 +42,7 @@
 				redirect('users/login');
 			}
 
-			$data['title'] = 'Create Post';
+			$data['title'] = 'Tạo bài viết mới';
 
 			$data['categories'] = $this->post_model->get_categories();
 
@@ -65,7 +65,7 @@
 
 				if(!$this->upload->do_upload()){
 					$errors = array('error' => $this->upload->display_errors());
-					$post_image = 'noimage.jpg';
+					$post_image = 'default.jpg';
 				} else {
 					$data = array('upload_data' => $this->upload->data());
 					$post_image = $_FILES['userfile']['name'];
@@ -114,7 +114,7 @@
 				show_404();
 			}
 
-			$data['title'] = 'Edit Post';
+			$data['title'] = 'Chỉnh sửa bài viết';
 
 			$this->load->view('templates/header');
 			$this->load->view('posts/edit', $data);

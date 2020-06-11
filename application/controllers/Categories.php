@@ -1,7 +1,7 @@
 <?php
 	class Categories extends CI_Controller{
 		public function index(){
-			$data['title'] = 'Categories';
+			$data['title'] = 'Danh mục';
 
 			$data['categories'] = $this->category_model->get_categories();
 
@@ -16,7 +16,7 @@
 				redirect('users/login');
 			}
 			
-			$data['title'] = 'Create Category';
+			$data['title'] = 'Thêm danh mục';
 
 			$this->form_validation->set_rules('name', 'Name', 'required');
 
@@ -28,7 +28,7 @@
 				$this->category_model->create_category();
 
 				// Set message
-				$this->session->set_flashdata('category_created', 'Your category has been created');
+				$this->session->set_flashdata('category_created', 'Danh mục của bạn đã tạo.');
 
 				redirect('categories');
 			}
@@ -53,7 +53,7 @@
 			$this->category_model->delete_category($id);
 
 			// Set message
-			$this->session->set_flashdata('category_deleted', 'Your category has been deleted');
+			$this->session->set_flashdata('category_deleted', 'Danh mục của bạn đã bị xóa');
 
 			redirect('categories');
 		}
