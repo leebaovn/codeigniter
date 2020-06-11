@@ -2,7 +2,7 @@
 
     <div class="row mx-0">
         <div class="col-md-6 col-12 paddding animate-box" data-animate-effect="fadeIn">
-            <div class="fh5co_suceefh5co_height"><img src="<?php echo base_url(); ?>assets/images/<?php echo $posts[0]['post_image'] ?>" alt="img"/>
+            <div class="fh5co_suceefh5co_height"><img src="<?php echo base_url(); ?>assets/images/posts/<?php echo $posts[0]['post_image'] ?>" alt="img"/>
                 <div class="fh5co_suceefh5co_height_position_absolute"></div>
                 <div class="fh5co_suceefh5co_height_position_absolute_font">
                     <div class=""><a href="<?php echo base_url(); ?>/posts/<?php echo $posts[0]['slug']?>" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;<?php echo $posts[0]['created_at'] ?>
@@ -15,7 +15,7 @@
             <div class="row">
                 <?php for ($i = 1; $i <= 4; $i++):?>
                 <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
-                    <div class="fh5co_suceefh5co_height_2"><img src="<?php echo base_url(); ?>assets/images/<?php echo $posts[$i]['post_image']?>" alt="img"/>
+                    <div class="fh5co_suceefh5co_height_2"><img src="<?php echo base_url(); ?>assets/images/posts/<?php echo $posts[$i]['post_image']?>" alt="img"/>
                         <div class="fh5co_suceefh5co_height_position_absolute"></div>
                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
                             <div class=""><a href="<?php echo base_url(); ?>/posts/<?php echo $posts[$i]['slug']?>" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;<?php echo $posts[$i]['created_at']?> </a></div>
