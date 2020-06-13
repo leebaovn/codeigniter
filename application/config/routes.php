@@ -1,12 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$route['posts/index'] = 'posts/index';
+$route['posts/index'] = (isset($_SESSION['user_id'])) ? 'posts/index' : 'posts/user_posts/$_SESSION["user_id"]';
 $route['posts/create'] = 'posts/create';
 $route['posts/update'] = 'posts/update';
-$route['posts/user/(:any)'] = 'posts/user/$1';
 $route['posts/(:any)'] = 'posts/view/$1';
-$route['posts'] = 'posts/index';
+$route['posts'] = (isset($_SESSION['user_id'])) ? 'posts/index' : 'posts/user_posts/$_SESSION["user_id"]';
 
 $route['default_controller'] = 'pages/view';
 

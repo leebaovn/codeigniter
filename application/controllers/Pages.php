@@ -13,9 +13,8 @@
 			}
 
 			$this->data['title'] = ucfirst($page);
-			$data['posts'] = $this->post_model->get_posts_by_time(FALSE, 5);
-			$cate = $this->category_model->get_latest_category();
-			$data['category_posts'] = $this->post_model->get_posts_by_category(1);
+			$data['posts'] = $this->post_model->get_posts_by_time(FALSE, 5, FALSE);
+			$data['most_views'] = $this->post_model->get_posts_by_views(FALSE, 5, FALSE);
 			$data['title'] = ucfirst($page);
 			$this->load->view('templates/header',$this->data);
 			$this->load->view('pages/'.$page, $data);

@@ -1,4 +1,4 @@
-<h2><?php echo $post['title']; ?></h2><span>[bởi <strong><?=$this->session->userdata('username') ?></strong>]</span>
+<h2><?php echo $post['title']; ?></h2><span>[bởi <strong><?=$this->session->userdata('username') ?></strong>]&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <i>Views : &nbsp</i><?php echo $post['view']?></span>
 
 <small class="post-date">Đăng vào lúc: <?php echo $post['created_at']; ?></small>
 <h4 class="mt-3"><?php echo $post['body']; ?><h4>

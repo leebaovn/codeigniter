@@ -1,5 +1,3 @@
-
-
 <div class="container-fluid paddding mb-5">
 
     <div class="row mx-0">
@@ -33,18 +31,18 @@
 <div class="container-fluid pt-3">
     <div class="container animate-box" data-animate-effect="fadeIn">
         <div>
-            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Trending</div>
+            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Most Views</div>
         </div>
         <div class="owl-carousel owl-theme js" id="slider1">
-            <?php foreach($category_posts as $cate_post) :?>
+            <?php foreach($most_views as $post) :?>
             <div class="item px-2">
                 <div class="fh5co_latest_trading_img_position_relative">
-                    <div class="fh5co_latest_trading_img"><img src="<?php echo base_url(); ?>assets/images/<?php echo $cate_post['post_image']?>" alt=""
+                    <div class="fh5co_latest_trading_img"><img src="<?php echo base_url(); ?>assets/images/<?php echo $post['post_image']?>" alt=""
                                                            class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="<?php echo base_url(); ?>/posts/<?php echo $cate_post['slug']?>" class="text-white"> <?php echo $cate_post['title']?> </a>
-                        <div class="fh5co_latest_trading_date_and_name_color"><?php echo $cate_post['name']?> - <?php echo $cate_post['created_at']?></div>
+                        <a href="<?php echo base_url(); ?>/posts/<?php echo $post['slug']?>" class="text-white"> <?php echo $post['title']?> </a>
+                        <div class="fh5co_latest_trading_date_and_name_color"><?php echo $post['name']?> - <?php echo $post['created_at']?></div>
                     </div>
                 </div>
             </div>

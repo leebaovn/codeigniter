@@ -1,5 +1,6 @@
 
 </div>
+<hr>
 <div class="container-fluid fh5co_footer_right_reserved">
 		<div class="container">
 			<div class="row  ">

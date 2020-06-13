@@ -9,6 +9,13 @@
 			$query = $this->db->get('categories');
 			return $query->result_array();
 		}
+
+		public function get_categories_by_user($user_id = 1){
+			$this->db->order_by('name');
+			$query = $this->db->get_where('categories',array('user_id' => $user_id));
+			return $query->result_array();
+		} 
+
 		public function get_latest_category(){
 			$this->db->order_by('created_at','DESC');
 			$this->db->limit(1);
