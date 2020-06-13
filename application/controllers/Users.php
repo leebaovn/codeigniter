@@ -1,42 +1,47 @@
 <?php
 	class Users extends CI_Controller{
-		// Register user
+		
+		public function __construct()
+		{
+			parent::__construct();
+			$this->data['uri'] = uri_string();
+		}
+		
+		
 		public function register(){
-			$data['title'] = 'Sign Up';
+			$this->data['title'] = 'Sign Up';
 
 			$this->form_validation->set_rules('name', 'Name', 'required');
 			$this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists');
 			$this->form_validation->set_rules('email', 'Email', 'required|callback_check_email_exists');
-			$this->form_validation->set_rules('password', 'Password', 'required');
+			$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
 			$this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
 
 			if($this->form_validation->run() === FALSE){
-				$this->load->view('templates/header');
-				$this->load->view('users/register', $data);
+				$this->load->view('templates/header',$this->data);
+				$this->load->view('users/register', $this->data);
 				$this->load->view('templates/footer');
 			} else {
-				// Encrypt password
+				// Mã hóa pw
 				$enc_password = md5($this->input->post('password'));
 
 				$this->user_model->register($enc_password);
 
-				// Set message
-				$this->session->set_flashdata('user_registered', 'You are now registered and can log in');
+				$this->session->set_flashdata('user_registered', 'Bạn đã đăng ký thành công và có thể đăng nhập.');
 
-				redirect('posts');
+				redirect('users/login');
 			}
 		}
 
-		// Log in user
+	
 		public function login(){
-			$data['title'] = 'Sign In';
-
+			$this->data['title'] = 'Sign In';
 			$this->form_validation->set_rules('username', 'Username', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 
 			if($this->form_validation->run() === FALSE){
-				$this->load->view('templates/header');
-				$this->load->view('users/login', $data);
+				$this->load->view('templates/header', $this->data);
+				$this->load->view('users/login', $this->data);
 				$this->load->view('templates/footer');
 			} else {
 				
@@ -59,12 +64,12 @@
 					$this->session->set_userdata($user_data);
 
 					// Set message
-					$this->session->set_flashdata('user_loggedin', 'You are now logged in');
+					$this->session->set_flashdata('user_loggedin', 'Đăng nhập thành công.');
 
 					redirect('posts');
 				} else {
 					// Set message
-					$this->session->set_flashdata('login_failed', 'Login is invalid');
+					$this->session->set_flashdata('login_failed', 'Đăng nhập thất bại.');
 
 					redirect('users/login');
 				}		
@@ -79,7 +84,7 @@
 			$this->session->unset_userdata('username');
 
 			// Set message
-			$this->session->set_flashdata('user_loggedout', 'You are now logged out');
+			$this->session->set_flashdata('user_loggedout', 'Bạn đã đăng xuất.');
 
 			redirect('users/login');
 		}
