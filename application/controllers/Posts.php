@@ -42,7 +42,6 @@
 		}
 
 		public function view($slug = NULL){
-
 			$this->data['post'] = $this->post_model->get_posts($slug);
 			$post_id = $this->data['post']['id'];
 			$this->data['likes'] = $this->like_model->count_like($post_id);

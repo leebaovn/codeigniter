@@ -38,6 +38,7 @@
 			}
 			if($slug === FALSE){
 				$this->db->order_by('created_at', 'DESC');
+				$this->db->join('users', 'users.id = posts.user_id');
 				$query = $this->db->get('posts');
 				return $query->result_array();
 			}
