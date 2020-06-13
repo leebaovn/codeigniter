@@ -11,7 +11,7 @@
 			}
 			if($slug === FALSE){
 				$this->db->order_by('posts.id', 'DESC');
-				$this->db->join('categories', 'categories.id = posts.category_id');
+				// $this->db->join('categories', 'categories.id = posts.category_id');
 				$query = $this->db->get('posts');
 				return $query->result_array();
 			}
@@ -20,12 +20,28 @@
 			return $query->row_array();
 		}
 
+<<<<<<< HEAD
 		// public function get_user_posts($user_id){
 		// 	$this->db->where('user_id', $user_id);
 		// 	$this->db->get('posts');
 		// 	return $this->db->result_array();
 		// }
 
+=======
+		public function get_posts_by_time($slug = FALSE, $limit = FALSE, $offset = FALSE){
+			if($limit){
+				$this->db->limit($limit, $offset);
+			}
+			if($slug === FALSE){
+				$this->db->order_by('created_at', 'DESC');
+				$query = $this->db->get('posts');
+				return $query->result_array();
+			}
+			$query = $this->db->get_where('posts', array('slug' => $slug));
+			return $query->row_array();
+		}
+	
+>>>>>>> bf4cc0fd8e38ab4fec81b7825c8b25c0fa1c0322
 		public function create_post($post_image){
 			$slug = url_title(convert_accented_characters($this->input->post('title')));
 
@@ -73,9 +89,10 @@
 			return $query->result_array();
 		}
 
-		public function get_posts_by_category($category_id){
+	public function get_posts_by_category($category_id){
 			$this->db->order_by('posts.id', 'DESC');
 			$this->db->join('categories', 'categories.id = posts.category_id');
+			$this->db->join('users', 'users.id = posts.user_id');
 				$query = $this->db->get_where('posts', array('category_id' => $category_id));
 			return $query->result_array();
 		}
