@@ -1,5 +1,5 @@
 <div class="container-fluid paddding mb-5">
-
+    <?php if(count($posts)==5): ?>
     <div class="row mx-0">
         <div class="col-md-6 col-12 paddding animate-box" data-animate-effect="fadeIn">
             <div class="fh5co_suceefh5co_height"><img src="<?php echo base_url(); ?>assets/images/posts/<?php echo $posts[0]['post_image'] ?>" alt="img"/>
@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-6">
             <div class="row">
-                <?php for ($i = 1; $i <= 4; $i++):?>
+                <?php for ($i = 1; $i < count($posts); $i++):?>
                 <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
                     <div class="fh5co_suceefh5co_height_2"><img src="<?php echo base_url(); ?>assets/images/posts/<?php echo $posts[$i]['post_image']?>" alt="img"/>
                         <div class="fh5co_suceefh5co_height_position_absolute"></div>
@@ -27,6 +27,7 @@
             </div>
         </div>
     </div>
+                <?php endif;?>
 </div>
 <div class="container-fluid pt-3">
     <div class="container animate-box" data-animate-effect="fadeIn">
@@ -37,7 +38,7 @@
             <?php foreach($most_views as $post) :?>
             <div class="item px-2">
                 <div class="fh5co_latest_trading_img_position_relative">
-                    <div class="fh5co_latest_trading_img"><img src="<?php echo base_url(); ?>assets/images/<?php echo $post['post_image']?>" alt=""
+                    <div class="fh5co_latest_trading_img"><img src="<?php echo base_url(); ?>assets/images/posts/<?php echo $post['post_image']?>" alt=""
                                                            class="fh5co_img_special_relative"/></div>
                     <div class="fh5co_latest_trading_img_position_absolute"></div>
                     <div class="fh5co_latest_trading_img_position_absolute_1">
