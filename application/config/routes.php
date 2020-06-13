@@ -7,7 +7,7 @@ $route['posts/update'] = 'posts/update';
 $route['posts/user/(:any)'] = 'posts/user/$1';
 $route['posts/(:any)'] = 'posts/view/$1';
 $route['posts'] = 'posts/index';
-
+$route['search'] = 'search';
 $route['default_controller'] = 'pages/view';
 
 $route['categories'] = 'categories/index';

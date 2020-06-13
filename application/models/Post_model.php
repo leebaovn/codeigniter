@@ -20,14 +20,6 @@
 			return $query->row_array();
 		}
 
-<<<<<<< HEAD
-		// public function get_user_posts($user_id){
-		// 	$this->db->where('user_id', $user_id);
-		// 	$this->db->get('posts');
-		// 	return $this->db->result_array();
-		// }
-
-=======
 		public function get_posts_by_time($slug = FALSE, $limit = FALSE, $offset = FALSE){
 			if($limit){
 				$this->db->limit($limit, $offset);
@@ -41,7 +33,6 @@
 			return $query->row_array();
 		}
 	
->>>>>>> bf4cc0fd8e38ab4fec81b7825c8b25c0fa1c0322
 		public function create_post($post_image){
 			$slug = url_title(convert_accented_characters($this->input->post('title')));
 
@@ -87,6 +78,12 @@
 			$this->db->order_by('name');
 			$query = $this->db->get('categories');
 			return $query->result_array();
+		}
+
+		public function search($keyword){
+			$this->db->like('title',$keyword);
+			$this->db->or_like('body',$keyword);
+			return $this->db->get('posts')->result_array();
 		}
 
 	public function get_posts_by_category($category_id){

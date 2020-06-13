@@ -18,8 +18,8 @@
 			$this->form_validation->set_rules('body', 'Body', 'required');
 
 			if($this->form_validation->run() === FALSE){
-				$this->load->view('templates/header', $data);
-				$this->load->view('posts/view', $data);
+				$this->load->view('templates/header', $this->data);
+				$this->load->view('posts/view', $this->data);
 				$this->load->view('templates/footer');
 			} else {
 				$this->comment_model->create_comment($post_id);

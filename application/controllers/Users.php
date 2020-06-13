@@ -9,7 +9,7 @@
 		
 		
 		public function register(){
-			$this->data['title'] = 'Sign Up';
+			$this->data['title'] = 'Đăng ký';
 
 			$this->form_validation->set_rules('name', 'Name', 'required');
 			$this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists');
@@ -35,7 +35,7 @@
 
 	
 		public function login(){
-			$this->data['title'] = 'Sign In';
+			$this->data['title'] = 'Đăng nhập';
 			$this->form_validation->set_rules('username', 'Username', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 
@@ -91,7 +91,7 @@
 
 		// Check if username exists
 		public function check_username_exists($username){
-			$this->form_validation->set_message('check_username_exists', 'That username is taken. Please choose a different one');
+			$this->form_validation->set_message('check_username_exists', 'Tài khoản này đã tồn tại. Vui lòng chọn một tài khoản khác.');
 			if($this->user_model->check_username_exists($username)){
 				return true;
 			} else {
@@ -101,7 +101,7 @@
 
 		// Check if email exists
 		public function check_email_exists($email){
-			$this->form_validation->set_message('check_email_exists', 'That email is taken. Please choose a different one');
+			$this->form_validation->set_message('check_email_exists', 'Email này đã tồn tại. Vui lòng đăng ký với email khác.');
 			if($this->user_model->check_email_exists($email)){
 				return true;
 			} else {

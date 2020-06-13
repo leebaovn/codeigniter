@@ -17,7 +17,6 @@
     
     <link href="<?php echo base_url();?>assets/css/style_1.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet" type="text/css"/>
-
 </head>
 
 
@@ -26,7 +25,7 @@
     <div class="container padding_786">
         <nav class="navbar navbar-toggleable-md navbar-light ">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link <?php echo $uri==''?'active':'' ?>" href="<?php echo base_url(); ?>">Trang chủ</a>
                     </li>
@@ -99,8 +98,23 @@
         <?php echo '<p class="alert alert-success">'.$this->session->flashdata('category_deleted').'</p>'; ?>
       <?php endif; ?>
       <?php if($this->session->flashdata('liked')): ?>
-        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('liked').'</p>'; ?>
+        <?php echo '<p class="alert alert-warning">'.$this->session->flashdata('liked').'</p>'; ?>
       <?php endif; ?>
+
+      <?php if($this->session->flashdata('liked_login')): ?>
+        <?php echo '<p class="alert alert-warning">'.$this->session->flashdata('liked_login').'</p>'; ?>
+      <?php endif; ?>
+        <div class="row">
+          <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
+     
+          </div>
+          <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+            <?php echo form_open('search'); ?>
+            <input type="text" name="search" class="" placeholder="Tìm kiếm...">
+            <input type="submit" name="search-btn" value="Tìm">
+             </form>
+           </div>
+      </div>
     
       
       

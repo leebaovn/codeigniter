@@ -3,13 +3,11 @@
 <small class="post-date">Đăng vào lúc: <?php echo $post['created_at']; ?></small>
 <h4 class="mt-3"><?php echo $post['body']; ?><h4>
 <img src="<?php echo site_url(); ?>assets/images/posts/<?php echo $post['post_image']; ?>">
-<div class="post-body">
+<div class="post-body mt-3">
 	<?php echo form_open('/likes/create/'.$post['id']); ?>
 		<input type="hidden" name="slug" value="<?=$post['slug']?>">
-	
-		<input type="submit" value="Thích" class="btn btn-danger mr-3 mt-3"><label><?php if($likes) echo $likes; else echo 0; ?> người thích bài viết này</label>
+		<input type="submit" value="Thích" class="btn btn-danger mr-3" ><label><?php if($likes) echo $likes; else echo 0; ?> người thích bài viết này</label>
 	</form>
-	
 </div>
 
 <?php if($this->session->userdata('user_id') == $post['user_id']): ?>

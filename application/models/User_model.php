@@ -6,8 +6,7 @@
 				'name' => $this->input->post('name'),
 				'email' => $this->input->post('email'),
                 'username' => $this->input->post('username'),
-                'password' => $enc_password,
-                'zipcode' => $this->input->post('zipcode')
+                'password' => $enc_password
 			);
 
 			// Insert user
@@ -16,7 +15,6 @@
 
 		// Log user in
 		public function login($username, $password){
-			// Validate
 			$this->db->where('username', $username);
 			$this->db->where('password', $password);
 
@@ -29,7 +27,6 @@
 			}
 		}
 
-		// Check username exists
 		public function check_username_exists($username){
 			$query = $this->db->get_where('users', array('username' => $username));
 			if(empty($query->row_array())){

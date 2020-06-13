@@ -26,15 +26,6 @@
 			$this->load->view('templates/footer');
 		}
 
-		// public function user($user_id){
-		// 	$this->data['title'] = 'Trang cá nhân';
-		// 	$this->data['post'] = $this->post_model->get_user_posts($user_id);
-		// 	$this->data['categories'] = $this->post_model->get_categories();
-		// 	$this->load->view('templates/header', $this->data);
-		// 	$this->load->view('posts/user', $this->data);
-		// 	$this->load->view('templates/footer');
-		// }
-
 		public function view($slug = NULL){
 			$this->data['post'] = $this->post_model->get_posts($slug);
 			$post_id = $this->data['post']['id'];
