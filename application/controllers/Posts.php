@@ -8,7 +8,11 @@
 		}
 		
 		public function index($offset = 0){	
-			// Cấu hình phân trang	
+			if(isset($_SESSION['user_id'])){
+				$this->user_posts($_SESSION['user_id']);
+			}
+			else{
+				// Cấu hình phân trang	
 			$config['base_url'] = base_url() . 'posts/index/';
 			$config['total_rows'] = $this->db->count_all('posts');
 			$config['per_page'] = 4;
@@ -24,6 +28,7 @@
 			$this->load->view('templates/header',$this->data);
 			$this->load->view('posts/index', $this->data);
 			$this->load->view('templates/footer');
+			}
 		}
 
 		public function user_posts($user_id = 1){
