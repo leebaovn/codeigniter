@@ -23,5 +23,5 @@
 	  <label>Hình ảnh</label>
 	  <input type="file" name="userfile" size="20">
   </div>
-  <button type="submit" class="btn btn-primary">Tạo</button>
+  <button type="submit" class="btn btn-primary contact_btn">Tạo</button>
 </form>

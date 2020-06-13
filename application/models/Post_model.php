@@ -20,8 +20,14 @@
 			return $query->row_array();
 		}
 
+		// public function get_user_posts($user_id){
+		// 	$this->db->where('user_id', $user_id);
+		// 	$this->db->get('posts');
+		// 	return $this->db->result_array();
+		// }
+
 		public function create_post($post_image){
-			$slug = url_title($this->input->post('title'));
+			$slug = url_title(convert_accented_characters($this->input->post('title')));
 
 			$data = array(
 				'title' => $this->input->post('title'),
@@ -37,11 +43,11 @@
 
 		public function delete_post($id){
 			$image_file_name = $this->db->select('post_image')->get_where('posts', array('id' => $id))->row()->post_image;
-			$cwd = getcwd(); // save the current working directory
+			$cwd = getcwd(); 
 			$image_file_path = $cwd."\\assets\\images\\posts\\";
 			chdir($image_file_path);
 			unlink($image_file_name);
-			chdir($cwd); // Restore the previous working directory
+			chdir($cwd); 
 			$this->db->where('id', $id);
 			$this->db->delete('posts');
 			return true;
