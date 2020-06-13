@@ -48,7 +48,7 @@
                       <a class="nav-link" href="<?php echo base_url(); ?>posts/create">Tạo post mới</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Xin chào <?=$this->session->userdata("username") ?></a>
+                      <a class="nav-link" href="#">Xin chào <strong><?=humanize($this->session->userdata("username")) ?></strong></a>
                     </li>
 
                     <li class="nav-item <?php echo $uri=='users/logout'?'active':'' ?>">

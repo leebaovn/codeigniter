@@ -27,7 +27,6 @@
         public function count_like($post_id){
             $query = $this->db->get_where('likes', array('post_id'=>$post_id));
             return $query->num_rows();
-            
         }
     
     }

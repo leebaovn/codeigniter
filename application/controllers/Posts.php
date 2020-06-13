@@ -8,7 +8,11 @@
 		}
 		
 		public function index($offset = 0){	
-			// Cấu hình phân trang	
+			if(isset($_SESSION['user_id'])){
+				$this->user_posts($_SESSION['user_id']);
+			}
+			else{
+				// Cấu hình phân trang	
 			$config['base_url'] = base_url() . 'posts/index/';
 			$config['total_rows'] = $this->db->count_all('posts');
 			$config['per_page'] = 4;
@@ -24,6 +28,17 @@
 			$this->load->view('templates/header',$this->data);
 			$this->load->view('posts/index', $this->data);
 			$this->load->view('templates/footer');
+			}
+		}
+
+		public function user_posts($user_id = 1){
+			$user_id = $_SESSION['user_id'];
+			$this->data['title'] = 'Trang cá nhân';
+			$this->data['posts'] = $this->post_model->get_posts_by_users($user_id);
+			$this->data['categories'] = $this->category_model->get_categories_by_user($user_id);
+			$this->load->view('templates/header', $this->data);
+			$this->load->view('posts/user', $this->data);
+			$this->load->view('templates/footer');
 		}
 
 		public function view($slug = NULL){
@@ -34,9 +49,8 @@
 			if(empty($this->data['post'])){
 				show_404();
 			}
-
 			$this->data['title'] = $this->data['post']['title'];
-
+			$this->post_model->update_post_view($slug);
 			$this->load->view('templates/header', $this->data);
 			$this->load->view('posts/view', $this->data);
 			$this->load->view('templates/footer');

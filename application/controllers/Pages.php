@@ -12,9 +12,8 @@
 				show_404();
 			}
 			$this->data['title'] = ucfirst($page);
-			$this->data['posts'] = $this->post_model->get_posts_by_time(FALSE, 5);
-			$cate = $this->category_model->get_latest_category();
-			$this->data['category_posts'] = $this->post_model->get_posts_by_category(1);
+			$this->data['posts'] = $this->post_model->get_posts_by_time(FALSE, 5, FALSE);
+			$this->data['most_views'] = $this->post_model->get_posts_by_views(FALSE, 5, FALSE);
 			$this->data['title'] = ucfirst($page);
 			$this->load->view('templates/header',$this->data);
 			$this->load->view('pages/'.$page, $this->data);
