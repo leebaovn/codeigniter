@@ -20,5 +20,5 @@
     <?php endforeach; ?>
   </select>
   </div>
-  <button type="submit" class="btn btn-default">Chỉnh sửa</button>
+  <button type="submit" class="btn btn-default contact_btn">Chỉnh sửa</button>
 </form>

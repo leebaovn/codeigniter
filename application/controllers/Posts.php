@@ -37,7 +37,7 @@
 			$this->data['posts'] = $this->post_model->get_posts_by_users($user_id);
 			$this->data['categories'] = $this->category_model->get_categories_by_user($user_id);
 			$this->load->view('templates/header', $this->data);
-			$this->load->view('posts/user', $this->data);
+			$this->load->view('posts/index', $this->data);
 			$this->load->view('templates/footer');
 		}
 
@@ -84,7 +84,7 @@
 
 				if(!$this->upload->do_upload()){
 					$errors = array('error' => $this->upload->display_errors());
-					$post_image = 'default.jpg';
+					$post_image = 'default.png';
 				} else {
 					$this->data = array('upload_data' => $this->upload->data());
 					$post_image = $_FILES['userfile']['name'];

@@ -31,9 +31,15 @@ a.pagination-link {
 	display: inline;
 }
 
-body {
-	font-family: Arial, Helvetica, sans-serif;
-}
 .col-md-4 {
 	margin: auto;
+}
+
+.view {
+	width: 400px !important;
+	margin: auto;
+}
+
+.font {
+	font-family: Arial, Helvetica, sans-serif;
 }

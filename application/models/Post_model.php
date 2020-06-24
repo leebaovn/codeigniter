@@ -60,7 +60,8 @@
 			return $query->row_array();
 		}
 		public function create_post($post_image){
-			$slug = url_title(convert_accented_characters($this->input->post('title')));
+			$slug = mb_strtolower($this->input->post('title'),'utf-8');
+			$slug = url_title(convert_accented_characters($slug));
 
 			$data = array(
 				'title' => $this->input->post('title'),

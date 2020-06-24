@@ -11,7 +11,7 @@
 					<a href="<?=base_url()?>" class="footer_last_part_menu">Trang chủ</a>
 					<a href="<?php echo base_url()?>posts" class="footer_last_part_menu">Bài viết</a>
 					<a href="<?php echo base_url()?>categories" class="footer_last_part_menu">Danh mục</a>
-					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -21,7 +21,6 @@
 			}
 			
 			$this->data['title'] = 'Thêm danh mục';
-			// $this->data['uri'] = "categories";
 			$this->form_validation->set_rules('name', 'Name', 'required');
 
 			if($this->form_validation->run() === FALSE){

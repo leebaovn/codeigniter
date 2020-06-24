@@ -25,3 +25,4 @@ class Search extends CI_Controller {
 }
 
 /* End of file Search.php */
+ 

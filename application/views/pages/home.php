@@ -32,11 +32,11 @@
 <div class="container-fluid pt-3">
     <div class="container animate-box" data-animate-effect="fadeIn">
         <div>
-            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Most Views</div>
+            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Lượt xem nhiều</div>
         </div>
         <div class="owl-carousel owl-theme js" id="slider1">
             <?php foreach($most_views as $post) :?>
-            <div class="item px-2">
+            <div class="item px-2 view">
                 <div class="fh5co_latest_trading_img_position_relative">
                     <div class="fh5co_latest_trading_img"><img src="<?php echo base_url(); ?>assets/images/posts/<?php echo $post['post_image']?>" alt=""
                                                            class="fh5co_img_special_relative"/></div>

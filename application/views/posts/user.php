@@ -16,7 +16,7 @@
                             </div>
                         </div>
                         <div class="col-md-7 animate-box" >
-                            <a href="<?php echo site_url('/posts/'.$post['slug']); ?>" class="fh5co_magna py-2"><?php echo $post['title']; ?></a><br>
+                            <a href="<?php echo site_url('/posts/'.$post['slug']); ?>" class="py-2"><?php echo $post['title']; ?></a><br>
                             <small class="post-date">Đăng vào: <?php echo $post['created_at']; ?></small><br>
                             <div class="fh5co_consectetur"> <?php echo word_limiter($post['body'], 60); ?></div>
                             <p><a class="btn btn-default contact_btn" href="<?php echo site_url('/posts/'.$post['slug']); ?>">Đọc thêm</a></p>
